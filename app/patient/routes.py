@@ -7,19 +7,23 @@ from flask import render_template, request
 from flask_login import login_required
 from jinja2 import TemplateNotFound
 
+from app import db
+from app.base.models import Indications
 from app.patient import blueprint
 
 
 @blueprint.route('/dashboard')
 @login_required
 def dashboard():
-    return render_template('dashboard.html', segment='dashboard')
+    indications = db.session.query(Indications).order_by(Indications.id.asc()).all()
+    return render_template('dashboard.html', segment='dashboard', indications=indications)
 
 
-@blueprint.route('/index')
+@blueprint.route('/transactions')
 @login_required
-def index():
-    return render_template('index.html', segment='index')
+def transactions():
+    indications = db.session.query(Indications).order_by(Indications.id.asc()).all()
+    return render_template('transactions.html', segment='transactions', indications=indications)
 
 
 @blueprint.route('/<template>')
@@ -28,9 +32,7 @@ def route_template(template):
     try:
         if not template.endswith('.html'):
             template += '.html'
-        # Detect the current page
         segment = get_segment(request)
-        # Serve the file (if exists) from app/templates/FILE.html
         return render_template(template, segment=segment)
     except TemplateNotFound:
         return render_template('page-404.html'), 404
@@ -38,7 +40,6 @@ def route_template(template):
         return render_template('page-500.html'), 500
 
 
-# Helper - Extract current page name from request
 def get_segment(request):
     try:
         segment = request.path.split('/')[-1]
