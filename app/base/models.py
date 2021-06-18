@@ -10,8 +10,8 @@ from app import db, login_manager
 
 from app.base.util import hash_pass
 
-class User(db.Model, UserMixin):
 
+class User(db.Model, UserMixin):
     __tablename__ = 'User'
 
     id = Column(Integer, primary_key=True)
@@ -29,8 +29,8 @@ class User(db.Model, UserMixin):
                 value = value[0]
 
             if property == 'password':
-                value = hash_pass( value ) # we need bytes here (not plain str)
-                
+                value = hash_pass(value)  # we need bytes here (not plain str)
+
             setattr(self, property, value)
 
     def __repr__(self):
@@ -40,6 +40,7 @@ class User(db.Model, UserMixin):
 @login_manager.user_loader
 def user_loader(id):
     return User.query.filter_by(id=id).first()
+
 
 @login_manager.request_loader
 def request_loader(request):

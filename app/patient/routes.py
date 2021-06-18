@@ -7,7 +7,13 @@ from flask import render_template, request
 from flask_login import login_required
 from jinja2 import TemplateNotFound
 
-from app.home import blueprint
+from app.patient import blueprint
+
+
+@blueprint.route('/dashboard')
+@login_required
+def dashboard():
+    return render_template('dashboard.html', segment='dashboard')
 
 
 @blueprint.route('/index')
