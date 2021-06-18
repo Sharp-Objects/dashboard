@@ -2,6 +2,7 @@
 """
 Copyright (c) 2019 - present AppSeed.us
 """
+from datetime import datetime
 
 from flask_login import UserMixin
 from sqlalchemy import Binary, Column, Integer, String
@@ -36,6 +37,18 @@ class User(db.Model, UserMixin):
     def __repr__(self):
         return str(self.username)
 
+
+class Patient(db.Model):
+
+    __tablename__ = 'Patient'
+
+    id = Column(Integer, primary_key=True)
+    full_name = Column(String)
+    gender = Column(String)
+    age = Column(Integer)
+    birth_date = Column(String)
+
+    birth_date = datetime.strptime(birth_date, "%Y/%M/%d")
 
 @login_manager.user_loader
 def user_loader(id):

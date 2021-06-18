@@ -1,0 +1,154 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Transactions {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+  <div class="table-settings mb-4">
+      <div class="row align-items-center justify-content-between">
+
+
+      </div>
+  </div>
+  <div class="card card-body shadow-sm table-wrapper table-responsive">
+      <table class="table table-hover">
+          <thead>
+              <tr>
+                  <th>#</th>
+                  <th>ФИО</th>
+                  <th>Пол</th>
+                  <th>Возраст</th>
+                  <th>Дата рождения</th>
+              </tr>
+          </thead>
+          <tbody>
+              <!-- Item -->
+              <tr>
+                  <td>
+                      <span class="fw-bold">
+                          1
+                      </span>
+                  </td>
+                  <td>
+                      <a href="#" class="fw-normal">Иванова Ивана Ивановна</a>
+                  </td>
+                  <td><span class="fw-normal"> Ж </span></td>
+                  <td><span class="fw-normal"> 66 </span></td>
+                  <td><span class="fw-bold"> 1 Мая 1955 </span></td>
+
+                  <td>
+                      <div class="btn-group">
+                          <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <span class="icon icon-sm">
+                                  <span class="fas fa-ellipsis-h icon-dark"></span>
+                              </span>
+                              <span class="sr-only">Toggle Dropdown</span>
+                          </button>
+                          <div class="dropdown-menu py-0">
+                              <a class="dropdown-item rounded-top" href="#"><span class="fas fa-eye me-2"></span> Данные о пациенте </a>
+                              <a class="dropdown-item" href="#"><span class="fas fa-edit me-2"></span> Метрики здоровья </a>
+                              <a class="dropdown-item text-danger rounded-bottom" href="#"><span class="fas fa-trash-alt me-2"></span> Скрыть </a>
+                          </div>
+                      </div>
+                  </td>
+              </tr>
+              <!-- Item -->
+              <tr>
+                  <td>
+                      <span class="fw-bold">
+                          2
+                      </span>
+                  </td>
+                  <td>
+                      <a href="#" class="fw-normal">Евгеньева Евгения Евгеньевна</a>
+                  </td>
+                  <td><span class="fw-normal"> Ж </span></td>
+                  <td><span class="fw-normal"> 62 </span></td>
+                  <td><span class="fw-bold"> 1 Мая 1958 </span></td>
+
+                  <td>
+                      <div class="btn-group">
+                          <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <span class="icon icon-sm">
+                                  <span class="fas fa-ellipsis-h icon-dark"></span>
+                              </span>
+                              <span class="sr-only">Toggle Dropdown</span>
+                          </button>
+                          <div class="dropdown-menu py-0">
+                              <a class="dropdown-item rounded-top" href="#"><span class="fas fa-eye me-2"></span> Данные о пациенте </a>
+                              <a class="dropdown-item" href="#"><span class="fas fa-edit me-2"></span> Метрики здоровья </a>
+                              <a class="dropdown-item text-danger rounded-bottom" href="#"><span class="fas fa-trash-alt me-2"></span> Скрыть </a>
+                          </div>
+                      </div>
+                  </td>
+              </tr>
+              <!-- Item -->
+               <tr>
+                  <td>
+                      <span class="fw-bold">
+                          3
+                      </span>
+                  </td>
+                  <td>
+                      <a href="#" class="fw-normal">Петров Петр Петрович</a>
+                  </td>
+                  <td><span class="fw-normal"> М </span></td>
+                  <td><span class="fw-normal"> 75 </span></td>
+                  <td><span class="fw-bold"> 1 Мая 1946 </span></td>
+
+                  <td>
+                      <div class="btn-group">
+                          <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <span class="icon icon-sm">
+                                  <span class="fas fa-ellipsis-h icon-dark"></span>
+                              </span>
+                              <span class="sr-only">Toggle Dropdown</span>
+                          </button>
+                          <div class="dropdown-menu py-0">
+                              <a class="dropdown-item rounded-top" href="#"><span class="fas fa-eye me-2"></span> Данные о пациенте </a>
+                              <a class="dropdown-item" href="#"><span class="fas fa-edit me-2"></span> Метрики здоровья </a>
+                              <a class="dropdown-item text-danger rounded-bottom" href="#"><span class="fas fa-trash-alt me-2"></span> Скрыть </a>
+                          </div>
+                      </div>
+                  </td>
+              </tr>
+
+          </tbody>
+      </table>
+      <div class="card-footer px-3 border-0 d-flex align-items-center justify-content-between">
+          <nav aria-label="Page navigation example">
+              <ul class="pagination mb-0">
+                  <li class="page-item">
+                      <a class="page-link" href="#">Предыдущая</a>
+                  </li>
+                  <li class="page-item">
+                      <a class="page-link" href="#">1</a>
+                  </li>
+                  <li class="page-item active">
+                      <a class="page-link" href="#">2</a>
+                  </li>
+                  <li class="page-item">
+                      <a class="page-link" href="#">3</a>
+                  </li>
+                  <li class="page-item">
+                      <a class="page-link" href="#">4</a>
+                  </li>
+                  <li class="page-item">
+                      <a class="page-link" href="#">5</a>
+                  </li>
+                  <li class="page-item">
+                      <a class="page-link" href="#">Следующая</a>
+                  </li>
+              </ul>
+          </nav>
+          <div class="fw-bold small d-none d-lg-block">Показаны <b>5</b> из <b>25</b> записей </div>
+      </div>
+  </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
