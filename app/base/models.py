@@ -15,6 +15,7 @@ class Recommendation(db.Model, UserMixin):
     __tablename__ = 'Recommendation'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
+    patient_snils = Column(String)
     text = Column(String(600), unique=False)
 
     def __init__(self, **kwargs):
@@ -87,7 +88,7 @@ class Patient(db.Model, UserMixin):
             setattr(self, property, value)
 
     def __repr__(self):
-        return f"{str(self.snils)}/{str(self.full_name)}"
+        return str(self.full_name)
 
 
 

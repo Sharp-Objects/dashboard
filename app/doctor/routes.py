@@ -9,7 +9,7 @@ from app import login_manager
 from jinja2 import TemplateNotFound
 
 from app import db
-from app.base.models import Patient
+from app.base.models import Patient, Recommendation
 from app.doctor import blueprint
 
 @blueprint.route('/index')
@@ -23,6 +23,16 @@ def index():
 def doc_main():
     patient = db.session.query(Patient).order_by(Patient.id.asc()).all()
     return render_template('doc_main.html', segment='doc_main', patient=patient)
+
+@blueprint.route('/add_recommendations')
+@login_required
+def add_recommendations():
+    recommendations = db.session.query(Recommendation).join(Patient, Recommendation.patient_snils==Patient.snils).all()
+    patient_name = db.session.query(Patient).join(Recommendation, Recommendation.patient_snils==Patient.snils).all()
+    return render_template('add_recommendations.html',
+                           segment='add_recommendations',
+                           recommendations=recommendations,
+                           patient_name=patient_name)
 
 @blueprint.route('/<template>')
 @login_required
