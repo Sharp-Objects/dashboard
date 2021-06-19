@@ -41,12 +41,14 @@
                     <span class="sidebar-text">Дневник давлений</span>
                 </a>
             </li>
-            <li class="nav-item {% if 'settings' in segment %} active {% endif %}">
-                <a href="/doc_main.html" class="nav-link">
-                    <span class="sidebar-icon"><span class="fas fa-medkit"></span></span>
-                    <span class="sidebar-text">Doc page</span>
-                </a>
-            </li>
+            {% if "doctor" == current_user.username %}
+                <li class="nav-item {% if 'settings' in segment %} active {% endif %}">
+                    <a href="/doc_main.html" class="nav-link">
+                        <span class="sidebar-icon"><span class="fas fa-medkit"></span></span>
+                        <span class="sidebar-text">Doc page</span>
+                    </a>
+                </li>
+            {% endif %}
             <li role="separator" class="dropdown-divider mt-4 mb-3 border-black"></li>
             <li class="nav-item">
                 <a href="https://appseed.us/"
