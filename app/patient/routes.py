@@ -45,8 +45,8 @@ def write_data():
 @blueprint.route('/dashboard')
 @login_required
 def dashboard():
-    indications = db.session.query(Indications).order_by(Indications.id.asc()).all()
-    return render_template('dashboard.html', segment='dashboard', indications=indications)
+    common = db.session.query(Common).order_by(Common.id.asc()).limit(5)
+    return render_template('dashboard.html', segment='dashboard', common=common)
 
 
 @blueprint.route('/transactions')
