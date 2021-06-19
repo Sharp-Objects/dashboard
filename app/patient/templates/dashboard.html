@@ -1,0 +1,196 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Личная страница {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+        <div class="btn-toolbar dropdown">
+            <button class="btn btn-dark btn-sm me-2 dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                <span class="fas fa-plus me-2"></span>Записать значения
+            </button>
+            <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-0">
+                <a class="dropdown-item fw-normal rounded-top" href="#"><span class="fas fa-tasks"></span>Записать
+                    значения</a>
+                <a class="dropdown-item fw-normal" href="#"><span class="fas fa-cloud-upload-alt"></span>Продиктовать
+                    значения</a>
+                <a class="dropdown-item fw-normal" href="#"><span class="fas fa-user-shield"></span>Сделать запрос</a>
+                <div role="separator" class="dropdown-divider my-0"></div>
+                <a class="dropdown-item fw-normal rounded-bottom" href="#"><span
+                        class="fas fa-rocket text-danger"></span>Распознать изображение</a>
+            </div>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="btn btn-sm btn-outline-primary">Поделиться</button>
+            <button type="button" class="btn btn-sm btn-outline-primary">Отправить врачу</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-xl-8">
+            <div class="card card-body shadow-sm mb-4">
+                <h2 class="h5 mb-4">Информация о пациенте</h2>
+                <form>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div>
+                                <label for="first_name">Имя</label>
+                                <input class="form-control" id="first_name" type="text"
+                                       placeholder="Введите свое имя" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div>
+                                <label for="last_name">Фамилия</label>
+                                <input class="form-control" id="last_name" type="text"
+                                       placeholder="Введите свою фамилию"
+                                       required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-md-6 mb-3">
+                            <label for="birthday">День рождения</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><span class="far fa-calendar-alt"></span></span>
+                                <input data-datepicker="" class="form-control" id="birthday" type="text"
+                                       placeholder="день/месяц/год" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="gender">Пол</label>
+                            <select class="form-select mb-0" id="gender" aria-label="Выберите пол">
+                                <option selected>Пол</option>
+                                <option value="1">Женской</option>
+                                <option value="2">Мужской</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="form-group">
+                                <label for="phone">Телефон</label>
+                                <input class="form-control" id="phone" type="number" placeholder="+7 (999) 333-23-23"
+                                       required>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="h5 my-4">Посещение врача</h2>
+                    <div class="row">
+                        <div class="col-sm-9 mb-3">
+                            <div class="form-group">
+                                <label for="address">Адрес</label>
+                                <input class="form-control" id="address" type="text"
+                                       placeholder="Введите адрес больницы" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 mb-3">
+                            <div class="form-group">
+                                <label for="number">Идентификатор врача</label>
+                                <input class="form-control" id="number" type="number" placeholder="Номер" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 mb-3">
+                            <div class="form-group">
+                                <label for="city">Город</label>
+                                <input class="form-control" id="city" type="text" placeholder="Город" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <button type="submit" class="btn btn-dark">Сохранить всё</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-12 col-xl-4">
+            <div class="row">
+                <div class="col-12 mb-4">
+                    <div class="card shadow-sm text-center p-0">
+                        <div class="profile-cover rounded-top"
+                             data-background="/static/assets/img/profile-cover.jpg"></div>
+                        <div class="card-body pb-5">
+                            <img src="/static/assets/img/team/profile-picture-1.jpg"
+                                 class="user-avatar large-avatar rounded-circle mx-auto mt-n7 mb-4" alt="Neil Portrait">
+                            <h4 class="h3">
+                                {# {{ current_user.username }} #}
+                                Иванов Олег Юрьевич
+                            </h4>
+                            <h5 class="fw-normal">
+                                {# {{ current_user.email }} #}
+                                oyivanov@example.com
+                            </h5>
+                            <p class="text-gray mb-4">Москва, Россия</p>
+                            <a class="btn btn-sm btn-dark me-2" href="#"><span class="fas fa-user-plus me-1"></span>
+                                Поделиться данными</a>
+                            <a class="btn btn-sm btn-secondary" href="#">Отправить сообщение</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col-12 mb-4">
+            <div class="card bg-secondary-alt shadow-sm">
+                <div class="card-header d-sm-flex flex-row align-items-center flex-0">
+                    <div class="d-block mb-3 mb-sm-0">
+                        <div class="h5 fw-normal mb-2">Давление</div>
+                        <h2 class="h3">120/80</h2>
+                        <div class="small mt-2">
+                            <span class="fw-bold me-2">Вчера</span>
+                            <span class="fas fa-angle-up text-success"></span>
+                            <span class="text-success fw-bold">3,47%</span>
+                        </div>
+                    </div>
+                    <div class="d-flex ms-auto">
+                        <a href="#" class="btn btn-secondary text-dark btn-sm me-2">Месяц</a>
+                        <a href="#" class="btn btn-dark btn-sm me-3">Неделя</a>
+                    </div>
+                </div>
+                <div class="card-body p-2">
+                    <div class="ct-chart-sales-value ct-double-octave ct-series-g"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card border-light shadow-sm mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-centered table-nowrap mb-0 rounded">
+                    <thead class="thead-light">
+                    <tr>
+                        <th class="border-0">#</th>
+                        <th class="border-0">Верхнее давление</th>
+                        <th class="border-0">Нижнее давление</th>
+                        <th class="border-0">Пульс</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for indicate in indications %}
+                        <tr>
+                            <td class="border-0"><a href="#" class="text-primary fw-bold">{{ indicate.id }}</a></td>
+                            <td class="border-0">
+                                {{ indicate.top_pressure }}
+                            </td>
+                            <td class="border-0">
+                                {{ indicate.bottom_pressure }}
+                            </td>
+                            <td class="border-0">
+                                {{ indicate.pulse }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
