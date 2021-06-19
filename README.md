@@ -1,6 +1,7 @@
 # Цифровой прорыв 2021
 
-Тема: Разработка системы дистанционного мониторинга уровня артериального давления и пульса у больных с артериальной гипертензией
+Тема: Разработка системы дистанционного мониторинга уровня артериального давления и пульса у больных с артериальной
+гипертензией
 
 Команда: Острые предметы
 
@@ -11,7 +12,6 @@
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=Sharp-Objects_dashboard&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=Sharp-Objects_dashboard)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=Sharp-Objects_dashboard&metric=ncloc)](https://sonarcloud.io/dashboard?id=Sharp-Objects_dashboard)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Sharp-Objects_dashboard&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=Sharp-Objects_dashboard)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Sharp-Objects_dashboard&metric=alert_status)](https://sonarcloud.io/dashboard?id=Sharp-Objects_dashboard)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Sharp-Objects_dashboard&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=Sharp-Objects_dashboard)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Sharp-Objects_dashboard&metric=security_rating)](https://sonarcloud.io/dashboard?id=Sharp-Objects_dashboard)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=Sharp-Objects_dashboard&metric=sqale_index)](https://sonarcloud.io/dashboard?id=Sharp-Objects_dashboard)
@@ -20,7 +20,22 @@
 
 ## Описание
 
-Личный кабинет пациента и врача
+Личный кабинет пациента и врача, созданный с целью дистанционного мониторинга уровня артериального давления и пульса.
+Данная система позволяет сохранять текущие результаты измеряемых значений с помощью ручного ввода или голосового
+управления. Информация пациента сохраняется в базе данных и передаётся врачу. На её основе доктор делает медицинские
+рекомендации.
+
+<br/>
+
+> Функционал
+
+- DBMS: SQLite, PostgreSQL (production)
+- DB Tools: SQLAlchemy ORM, Flask-Migrate (schema migrations)
+- Modular design with **Blueprints**, simple codebase
+- Session-Based authentication (via **flask_login**), Forms validation
+- Deployment scripts: Docker, Gunicorn / Nginx, Heroku
+
+> Примечание: чтобы использовать приложение, перейдите на страницу регистрации и создайте нового пользователя. После аутентификации приложение разблокирует приватные страницы.
 
 ## Использование
 
@@ -60,3 +75,52 @@ $ flask run --host=0.0.0.0 --port=5000
 $
 $ # Доступ в браузере: http://127.0.0.1:5000/
 ```
+
+## Развёртывание
+
+Приложение имеет базовую конфигурацию, которая будет выполняться в [Docker](https://www.docker.com/) и [Gunicorn](https://gunicorn.org/).
+
+<br/>
+
+### [Docker](https://www.docker.com/)
+---
+
+Приложение легко запускается в docker-контейнере. Шаги:
+
+> Клонирование кода
+
+```bash
+$ git clone https://github.com/Sharp-Objects/dashboard.git
+$ cd dashboard
+```
+
+> Запуск приложения
+
+```bash
+$ sudo docker-compose pull && sudo docker-compose build && sudo docker-compose up -d
+```
+
+Перейдите в браузере на страницу `http://localhost:5005`. Приложение развернуто и готово к запуску.
+
+<br/>
+
+### [Gunicorn](https://gunicorn.org/)
+---
+
+Gunicorn 'Green Unicorn' - это HTTP-сервер Python WSGI для UNIX.
+
+> Установка gunicorn
+
+```bash
+$ pip install gunicorn
+```
+
+> Запустите приложение, используя gunicorn
+
+```bash
+$ gunicorn --bind 0.0.0.0:8001 run:app
+Serving on http://localhost:8001
+```
+
+Перейдите в браузере на страницу `http://localhost:8001`. Приложение развернуто и готово к запуску.
+
