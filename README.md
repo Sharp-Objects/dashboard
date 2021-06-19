@@ -4,8 +4,19 @@
 
 Команда: Острые предметы
 
+[![We recommend IntelliJ IDEA](https://www.elegantobjects.org/intellij-idea.svg)](https://www.jetbrains.com/idea/)
+
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Sharp-Objects_dashboard&metric=bugs)](https://sonarcloud.io/dashboard?id=Sharp-Objects_dashboard)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Sharp-Objects_dashboard&metric=code_smells)](https://sonarcloud.io/dashboard?id=Sharp-Objects_dashboard)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=Sharp-Objects_dashboard&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=Sharp-Objects_dashboard)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=Sharp-Objects_dashboard&metric=ncloc)](https://sonarcloud.io/dashboard?id=Sharp-Objects_dashboard)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Sharp-Objects_dashboard&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=Sharp-Objects_dashboard)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Sharp-Objects_dashboard&metric=alert_status)](https://sonarcloud.io/dashboard?id=Sharp-Objects_dashboard)
-[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/dashboard?id=Sharp-Objects_dashboard)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Sharp-Objects_dashboard&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=Sharp-Objects_dashboard)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Sharp-Objects_dashboard&metric=security_rating)](https://sonarcloud.io/dashboard?id=Sharp-Objects_dashboard)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=Sharp-Objects_dashboard&metric=sqale_index)](https://sonarcloud.io/dashboard?id=Sharp-Objects_dashboard)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Sharp-Objects_dashboard&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=Sharp-Objects_dashboard)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Описание
 
