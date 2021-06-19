@@ -1,10 +1,3 @@
-# Цифровой прорыв 2021
-
-Тема: Разработка системы дистанционного мониторинга уровня артериального давления и пульса у больных с артериальной
-гипертензией
-
-Команда: Острые предметы
-
 [![We recommend IntelliJ IDEA](https://www.elegantobjects.org/intellij-idea.svg)](https://www.jetbrains.com/idea/)
 
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Sharp-Objects_dashboard&metric=bugs)](https://sonarcloud.io/dashboard?id=Sharp-Objects_dashboard)
@@ -18,7 +11,7 @@
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Sharp-Objects_dashboard&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=Sharp-Objects_dashboard)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Описание
+# Описание
 
 Личный кабинет пациента и врача, созданный с целью дистанционного мониторинга уровня артериального давления и пульса.
 Данная система позволяет сохранять текущие результаты измеряемых значений с помощью ручного ввода или голосового
@@ -53,6 +46,7 @@
 - Modular design with **Blueprints**, simple codebase
 - Session-Based authentication (via **flask_login**), Forms validation
 - Deployment scripts: Docker, Gunicorn / Nginx, Heroku
+- Python with Flask
 
 > Примечание: чтобы использовать приложение, перейдите на страницу регистрации и создайте нового пользователя. После аутентификации приложение разблокирует приватные страницы.
 
