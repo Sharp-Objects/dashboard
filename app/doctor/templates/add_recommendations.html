@@ -7,28 +7,59 @@
 
 {% block content %}
 
+    <!-- Modal Content -->
+    <div class="modal fade" id="modal-default" tabindex="-1" role="dialog"
+         aria-labelledby="modal-default" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="h6 modal-title">Введите новую рекомендацию</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="my-4">
+                        <form action="" method="post">
+                            <label for="textarea">Example textarea</label>
+                            <textarea class="form-control" name="text" placeholder="Enter your message..." id="textarea"
+                                      rows="4"></textarea>
+                            <br>
+                            <button type="submit" class="btn btn-secondary">Подтвердить</button>
+                            <button type="button" class="btn btn-link text-gray ms-auto"
+                                    data-bs-dismiss="modal">Закрыть
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-      <div class="card border-light shadow-sm mb-4">
-          <div class="card-body">
+    <br>
+    <div class="card border-light shadow-sm mb-4">
+        <div class="card-body">
 
-              <div class="d-flex justify-content-between">
-                  <h5> Рекомендации для пациента {{ patient_name[0] }} </h5>
-                  <button class="btn btn-sm btn-secondary " type="button">Добавить запись</button>
-              </div><br>
-              <div class="table-responsive">
-                  <table class="table table-centered table-nowrap mb-0 rounded">
-                      <thead class="thead-light">
-                          <tr>
-                              <th class="border-0">#</th>
-                              <th class="border-0">Дата</th>
-                              <th class="border-0">Рекомендации</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <!-- Item -->
-                          {% for rec in recommendations %}
-                              <tr>
-                            <td ><span class="fw-normal"><a href="#">{{ rec.patient_snils }}</a></span></td>
+            <div class="d-flex justify-content-between">
+                <h5> Рекомендации для пациента {{ patient_name[0] }} </h5>
+                <button type="button" class="btn btn-block btn-dark mb-3" data-bs-toggle="modal"
+                        data-bs-target="#modal-default">Default
+                </button>
+            </div>
+            <br>
+            <div class="table-responsive">
+                <table class="table table-centered table-nowrap mb-0 rounded">
+                    <thead class="thead-light">
+                    <tr>
+
+                        <th class="border-0">Рекомендации</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- Item -->
+                    {% for rec in recommendations %}
+                        <tr>
+
+                            <td><span class="fw-normal"><a href="#">{{ rec.text }}</a></span></td>
 
                             <td>
                       <div class="btn-group">
