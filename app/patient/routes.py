@@ -26,7 +26,7 @@ def write():
     return jsonify(data)
 
 
-@blueprint.route('/write_data', methods=['POST'])
+@blueprint.route('/write_data', methods=['POST', 'GET'])
 def write_data():
     response = request.json
     common = Common(
