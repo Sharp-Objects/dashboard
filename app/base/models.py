@@ -48,7 +48,7 @@ class Patient(db.Model):
     age = Column(Integer)
     birth_date = Column(String)
 
-    birth_date = datetime.strptime(birth_date, "%Y/%M/%d")
+    #birth_date = datetime.strptime(birth_date, "%Y/%M/%d")
 
 @login_manager.user_loader
 def user_loader(id):
