@@ -3,13 +3,26 @@
 Copyright (c) 2019 - present AppSeed.us
 """
 
-from flask import render_template, request
+from flask import render_template, request, jsonify
 from flask_login import login_required
 from jinja2 import TemplateNotFound
 
 from app import db
 from app.base.models import Indications
 from app.patient import blueprint
+
+
+@blueprint.route('/write', methods=['POST'])
+def write():
+    data = request.json
+    indication = Indications(
+        top_pressure=data['top_pressure'],
+        bottom_pressure=data['bottom_pressure'],
+        pulse=data['pulse']
+    )
+    db.session.add(indication)
+    db.session.commit()
+    return jsonify(data)
 
 
 @blueprint.route('/dashboard')
