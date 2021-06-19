@@ -2,13 +2,14 @@
 """
 Copyright (c) 2021 - present SharpObjects
 """
+from datetime import datetime
 
 from flask import render_template, request, jsonify
 from flask_login import login_required
 from jinja2 import TemplateNotFound
 
 from app import db
-from app.base.models import Indications
+from app.base.models import Indications, Common
 from app.patient import blueprint
 
 
@@ -23,6 +24,22 @@ def write():
     db.session.add(indication)
     db.session.commit()
     return jsonify(data)
+
+
+@blueprint.route('/write_data', methods=['POST'])
+def write_data():
+    response = request.json
+    common = Common(
+        date=datetime.fromtimestamp(response["date"]),
+        model_name=response["modelName"],
+        high_value=response["highValue"],
+        low_value=response["lowValue"],
+        pulse=response["pulse"],
+        activity=response["activity"]
+    )
+    db.session.add(common)
+    db.session.commit()
+    return jsonify(response)
 
 
 @blueprint.route('/dashboard')
