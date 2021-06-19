@@ -38,14 +38,14 @@
                             <div>
                                 <label for="first_name">Имя</label>
                                 <input class="form-control" id="first_name" type="text"
-                                       placeholder="Введите свое имя" required>
+                                       placeholder="Анна Ивановна" required>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div>
                                 <label for="last_name">Фамилия</label>
                                 <input class="form-control" id="last_name" type="text"
-                                       placeholder="Введите свою фамилию"
+                                       placeholder="Михеева"
                                        required>
                             </div>
                         </div>
@@ -56,16 +56,13 @@
                             <div class="input-group">
                                 <span class="input-group-text"><span class="far fa-calendar-alt"></span></span>
                                 <input data-datepicker="" class="form-control" id="birthday" type="text"
-                                       placeholder="день/месяц/год" required>
+                                       placeholder="10.08.1950" required>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="gender">Пол</label>
-                            <select class="form-select mb-0" id="gender" aria-label="Выберите пол">
-                                <option selected>Пол</option>
-                                <option value="1">Женской</option>
-                                <option value="2">Мужской</option>
-                            </select>
+                            <input data-datepicker="" class="form-control" id="gender" type="text"
+                                   placeholder="Женский" required>
                         </div>
                     </div>
                     <div class="row">
@@ -76,6 +73,13 @@
                                        required>
                             </div>
                         </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="form-group">
+                                <label for="snils">СНИЛС</label>
+                                <input class="form-control" id="snils" type="text" placeholder="116-973-385 89"
+                                       required>
+                            </div>
+                        </div>
                     </div>
                     <h2 class="h5 my-4">Посещение врача</h2>
                     <div class="row">
@@ -83,27 +87,13 @@
                             <div class="form-group">
                                 <label for="address">Адрес</label>
                                 <input class="form-control" id="address" type="text"
-                                       placeholder="Введите адрес больницы" required>
-                            </div>
-                        </div>
-                        <div class="col-sm-3 mb-3">
-                            <div class="form-group">
-                                <label for="number">Идентификатор врача</label>
-                                <input class="form-control" id="number" type="number" placeholder="Номер" required>
+                                       placeholder="Москва, Зеленоградская улица, 31к2" required>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-4 mb-3">
-                            <div class="form-group">
-                                <label for="city">Город</label>
-                                <input class="form-control" id="city" type="text" placeholder="Город" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-3">
-                        <button type="submit" class="btn btn-dark">Сохранить всё</button>
-                    </div>
+                    {#                    <div class="mt-3">#}
+                    {#                        <button type="submit" class="btn btn-dark">Сохранить всё</button>#}
+                    {#                    </div>#}
                 </form>
             </div>
         </div>
@@ -114,7 +104,7 @@
                         <div class="profile-cover rounded-top"
                              data-background="/static/assets/img/profile-cover.jpg"></div>
                         <div class="card-body pb-5">
-                            <img src="/static/assets/img/team/profile-picture-1.jpg"
+                            <img src="/static/assets/img/team/doctor.jpg"
                                  class="user-avatar large-avatar rounded-circle mx-auto mt-n7 mb-4" alt="Neil Portrait">
                             <h4 class="h3">
                                 {# {{ current_user.username }} #}
