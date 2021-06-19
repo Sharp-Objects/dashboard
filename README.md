@@ -40,40 +40,40 @@
 ## Использование
 
 ```bash
-$ # Клонирование кода
-$ git clone https://github.com/Sharp-Objects/dashboard.git
-$ cd dashboard
-$
-$ # Настройка виртуального окружения (Unix)
-$ virtualenv env
-$ source env/bin/activate
-$
-$ # Настройка виртуального окружения (Windows)
-$ # virtualenv env
-$ # .\env\Scripts\activate
-$
-$ # Установка модулей - SQLite Database
-$ pip3 install -r requirements.txt
-$
-$ # Альтернативная установка модулей - PostgreSQL connector
-$ # pip install -r requirements-pgsql.txt
-$
-$ # Создание переменной окружения FLASK_APP 
-$ (Unix/Mac) export FLASK_APP=run.py
-$ (Windows) set FLASK_APP=run.py
-$ (Powershell) $env:FLASK_APP = ".\run.py"
-$
-$ # Запуск режима разработчика 
-$ # (Unix/Mac) export FLASK_ENV=development
-$ # (Windows) set FLASK_ENV=development
-$ # (Powershell) $env:FLASK_ENV = "development"
-$
-$ # Запуск приложения (режим разработчика)
-$ # --host=0.0.0.0 - публикация на все сетевые интерфейсы (default 127.0.0.1)
-$ # --port=5000    - выбор порта (default 5000)  
-$ flask run --host=0.0.0.0 --port=5000
-$
-$ # Доступ в браузере: http://127.0.0.1:5000/
+# Клонирование кода
+git clone https://github.com/Sharp-Objects/dashboard.git
+cd dashboard
+
+# Настройка виртуального окружения (Unix)
+virtualenv env
+source env/bin/activate
+
+# Настройка виртуального окружения (Windows)
+# virtualenv env
+# .\env\Scripts\activate
+
+# Установка модулей - SQLite Database
+pip3 install -r requirements.txt
+
+# Альтернативная установка модулей - PostgreSQL connector
+# pip install -r requirements-pgsql.txt
+
+# Создание переменной окружения FLASK_APP 
+(Unix/Mac) export FLASK_APP=run.py
+(Windows) set FLASK_APP=run.py
+(Powershell) $env:FLASK_APP = ".\run.py"
+
+# Запуск режима разработчика 
+# (Unix/Mac) export FLASK_ENV=development
+# (Windows) set FLASK_ENV=development
+# (Powershell) $env:FLASK_ENV = "development"
+
+# Запуск приложения (режим разработчика)
+# --host=0.0.0.0 - публикация на все сетевые интерфейсы (default 127.0.0.1)
+# --port=5000    - выбор порта (default 5000)  
+flask run --host=0.0.0.0 --port=5000
+
+# Доступ в браузере: http://127.0.0.1:5000/
 ```
 
 ## Развёртывание
@@ -90,14 +90,14 @@ $ # Доступ в браузере: http://127.0.0.1:5000/
 > Клонирование кода
 
 ```bash
-$ git clone https://github.com/Sharp-Objects/dashboard.git
-$ cd dashboard
+git clone https://github.com/Sharp-Objects/dashboard.git
+cd dashboard
 ```
 
 > Запуск приложения
 
 ```bash
-$ sudo docker-compose pull && sudo docker-compose build && sudo docker-compose up -d
+sudo docker-compose pull && sudo docker-compose build && sudo docker-compose up -d
 ```
 
 Перейдите в браузере на страницу `http://localhost:5005`. Приложение развернуто и готово к запуску.
@@ -112,13 +112,13 @@ Gunicorn 'Green Unicorn' - это HTTP-сервер Python WSGI для UNIX.
 > Установка gunicorn
 
 ```bash
-$ pip install gunicorn
+pip install gunicorn
 ```
 
 > Запустите приложение, используя gunicorn
 
 ```bash
-$ gunicorn --bind 0.0.0.0:8001 run:app
+gunicorn --bind 0.0.0.0:8001 run:app
 Serving on http://localhost:8001
 ```
 
