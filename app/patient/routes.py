@@ -3,27 +3,15 @@
 Copyright (c) 2021 - present SharpObjects
 """
 from datetime import datetime
+from random import choice
 
 from flask import render_template, request, jsonify
 from flask_login import login_required
 from jinja2 import TemplateNotFound
 
 from app import db
-from app.base.models import Indications, Common
+from app.base.models import Common, Recommendation
 from app.patient import blueprint
-
-
-@blueprint.route('/write', methods=['POST'])
-def write():
-    data = request.json
-    indication = Indications(
-        top_pressure=data['top_pressure'],
-        bottom_pressure=data['bottom_pressure'],
-        pulse=data['pulse']
-    )
-    db.session.add(indication)
-    db.session.commit()
-    return jsonify(data)
 
 
 @blueprint.route('/write_data', methods=['POST', 'GET'])
@@ -42,11 +30,17 @@ def write_data():
     return jsonify(response)
 
 
+@blueprint.route('/recommendation', methods=['GET'])
+def recommendation():
+    rec = db.session.query(Recommendation).order_by(Recommendation.id.asc()).all()
+    return str(rec)
+
+
 @blueprint.route('/dashboard')
 @login_required
 def dashboard():
-    indications = db.session.query(Indications).order_by(Indications.id.asc()).all()
-    return render_template('dashboard.html', segment='dashboard', indications=indications)
+    common = db.session.query(Common).order_by(Common.id.asc()).limit(5)
+    return render_template('dashboard.html', segment='dashboard', common=common)
 
 
 @blueprint.route('/transactions')
@@ -76,5 +70,6 @@ def get_segment(request):
         if segment == '':
             segment = 'index'
         return segment
-    except:
+    except Exception as e:
+        print(f"Exception: {e}")
         return None

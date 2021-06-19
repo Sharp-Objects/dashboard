@@ -5,13 +5,13 @@
   "description": "Template project - Flask Boilerplate Code",
   "repository": {
     "type": "git",
-    "url": "https://github.com/app-generator/flask-dashboard-volt"
+    "url": " https://github.com/Sharp-Objects/dashboard"
   },
   "bugs": {
-    "url": "https://github.com/app-generator/flask-dashboard-volt/issues",
+    "url": " https://github.com/Sharp-Objects/dashboard/issues",
     "email": "support@appseed.us"
   },
-  "author": "AppSeed App Generator <support@appseed.us> (https://appseed.us)",
+  "author": "SharpObjects <liskunov.roma@yandex.ru> (https://github.com/Sharp-Objects/dashboard)",
   "engines": {
     "node": ">=10.0.0"
   },

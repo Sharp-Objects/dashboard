@@ -11,13 +11,11 @@ from app import db, login_manager
 from app.base.util import hash_pass
 
 
-class Indications(db.Model, UserMixin):
-    __tablename__ = 'Indications'
+class Recommendation(db.Model, UserMixin):
+    __tablename__ = 'Recommendation'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    top_pressure = Column(Integer)
-    bottom_pressure = Column(Integer)
-    pulse = Column(Integer)
+    text = Column(String(600), unique=False)
 
     def __init__(self, **kwargs):
         print(kwargs.items())
@@ -27,7 +25,7 @@ class Indications(db.Model, UserMixin):
             setattr(self, property, value)
 
     def __repr__(self):
-        return f"{str(self.top_pressure)}/{str(self.bottom_pressure)}"
+        return str(self.text)
 
 
 class Common(db.Model, UserMixin):

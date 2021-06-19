@@ -29,18 +29,6 @@
                     <span class="mt-1 ms-1 sidebar-text">Острые предметы</span>
                 </a>
             </li>
-            <li class="nav-item {% if 'dashboard' in segment %} active {% endif %}">
-                <a href="/dashboard" class="nav-link">
-                    <span class="sidebar-icon"><span class="fas fa-chart-pie"></span></span>
-                    <span class="sidebar-text">Личная страница</span>
-                </a>
-            </li>
-            <li class="nav-item {% if 'transactions' in segment %} active {% endif %}">
-                <a href="/transactions" class="nav-link">
-                    <span class="sidebar-icon"><span class="fas fa-hand-holding-usd"></span></span>
-                    <span class="sidebar-text">Дневник давлений</span>
-                </a>
-            </li>
             {% if "doctor" == current_user.username %}
                 <li class="nav-item {% if 'settings' in segment %} active {% endif %}">
                     <a href="/doc_main" class="nav-link">
@@ -48,10 +36,23 @@
                         <span class="sidebar-text">Doc page</span>
                     </a>
                 </li>
+            {% else %}
+                <li class="nav-item {% if 'dashboard' in segment %} active {% endif %}">
+                    <a href="/dashboard" class="nav-link">
+                        <span class="sidebar-icon"><span class="fas fa-chart-pie"></span></span>
+                        <span class="sidebar-text">Личная страница</span>
+                    </a>
+                </li>
+                <li class="nav-item {% if 'transactions' in segment %} active {% endif %}">
+                    <a href="/transactions" class="nav-link">
+                        <span class="sidebar-icon"><span class="fas fa-hand-holding-usd"></span></span>
+                        <span class="sidebar-text">Дневник давлений</span>
+                    </a>
+                </li>
             {% endif %}
             <li role="separator" class="dropdown-divider mt-4 mb-3 border-black"></li>
             <li class="nav-item">
-                <a href="https://appseed.us/"
+                <a href="https://github.com/Sharp-Objects/dashboard"
                    target="_blank"
                    class="nav-link d-flex align-items-center">
                     <span class="sidebar-icon"><span class="fas fa-envelope"></span></span>
