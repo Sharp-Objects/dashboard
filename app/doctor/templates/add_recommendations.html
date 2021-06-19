@@ -1,0 +1,65 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Tables {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+
+      <div class="card border-light shadow-sm mb-4">
+          <div class="card-body">
+
+              <div class="d-flex justify-content-between">
+                  <h5> Рекомендации для пациента {{ patient_name[0] }} </h5>
+                  <button class="btn btn-sm btn-secondary " type="button">Добавить запись</button>
+              </div><br>
+              <div class="table-responsive">
+                  <table class="table table-centered table-nowrap mb-0 rounded">
+                      <thead class="thead-light">
+                          <tr>
+                              <th class="border-0">#</th>
+                              <th class="border-0">Дата</th>
+                              <th class="border-0">Рекомендации</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <!-- Item -->
+                          {% for rec in recommendations %}
+                              <tr>
+                            <td ><span class="fw-normal"><a href="#">{{ rec.patient_snils }}</a></span></td>
+
+                            <td>
+                      <div class="btn-group">
+                          <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <span class="icon icon-sm">
+                                  <span class="fas fa-ellipsis-h icon-dark"></span>
+                              </span>
+                              <span class="sr-only">Toggle Dropdown</span>
+                          </button>
+                          <div class="dropdown-menu py-0">
+                              <a class="dropdown-item rounded-top" href="#"><span class="fas fa-eye me-2"></span> Данные о пациенте </a>
+                              <a class="dropdown-item" href="#"><span class="fas fa-medkit me-2"></span> Метрики здоровья </a>
+                              <a class="dropdown-item" href="add_recommendations.html"><span class="fas fa-edit me-2"></span> Добавить рекомендации </a>
+                              <a class="dropdown-item text-danger rounded-bottom" href="#"><span class="fas fa-trash-alt me-2"></span> Скрыть </a>
+                          </div>
+
+                      </div>
+                  </td>
+                        </tr>
+                          {% endfor %}
+                          <!-- End of Item -->
+
+
+
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
