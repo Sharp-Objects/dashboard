@@ -52,8 +52,8 @@ def dashboard():
 @blueprint.route('/transactions')
 @login_required
 def transactions():
-    indications = db.session.query(Indications).order_by(Indications.id.asc()).all()
-    return render_template('transactions.html', segment='transactions', indications=indications)
+    common = db.session.query(Common).order_by(Common.id.asc()).all()
+    return render_template('transactions.html', segment='transactions', common=common)
 
 
 @blueprint.route('/<template>')
