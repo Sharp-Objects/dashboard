@@ -35,41 +35,24 @@
                     <thead class="thead-light">
                     <tr>
                         <th class="border-0">#</th>
+                        <th class="border-0">Дата</th>
+                        <th class="border-0">Прибор</th>
                         <th class="border-0">Верхнее давление</th>
                         <th class="border-0">Нижнее давление</th>
                         <th class="border-0">Пульс</th>
+                        <th class="border-0">Активность</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {% for indicate in indications %}
+                    {% for com in common %}
                         <tr>
-                            <td class="border-0"><a href="#" class="text-primary fw-bold">{{ indicate.id }}</a></td>
-                            <td class="border-0">
-                                {{ indicate.top_pressure }}
-                            </td>
-                            <td class="border-0">
-                                {{ indicate.bottom_pressure }}
-                            </td>
-                            <td class="border-0">
-                                {{ indicate.pulse }}
-                            </td>
-                            {#                        <td class="border-0">#}
-                            {#                            <div class="row d-flex align-items-center">#}
-                            {#                                <div class="col-12 col-xl-2 px-0">#}
-                            {#                                    <div class="small fw-bold">51%</div>#}
-                            {#                                </div>#}
-                            {#                                <div class="col-12 col-xl-10 px-0 px-xl-1">#}
-                            {#                                    <div class="progress progress-lg mb-0">#}
-                            {#                                        <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="51"#}
-                            {#                                             aria-valuemin="0" aria-valuemax="100" style="width: 51%;"></div>#}
-                            {#                                    </div>#}
-                            {#                                </div>#}
-                            {#                            </div>#}
-                            {#                        </td>#}
-                            {#                        <td class="border-0 text-success">#}
-                            {#                            <span class="fas fa-angle-up"></span>#}
-                            {#                            <span class="fw-bold">2.45%</span>#}
-                            {#                        </td>#}
+                            <td class="border-0"><a href="#" class="text-primary fw-bold">{{ com.id }}</a></td>
+                            <td class="border-0"> {{ com.date }} </td>
+                            <td class="border-0"> {{ com.model_name }} </td>
+                            <td class="border-0"> {{ com.high_value }} </td>
+                            <td class="border-0"> {{ com.low_value }} </td>
+                            <td class="border-0"> {{ com.pulse }} </td>
+                            <td class="border-0"> {{ com.activity }} </td>
                         </tr>
                     {% endfor %}
                     </tbody>
