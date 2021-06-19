@@ -5,7 +5,7 @@ Copyright (c) 2021 - present SharpObjects
 from datetime import datetime
 
 from flask_login import UserMixin
-from sqlalchemy import Binary, Column, Integer, String, TIMESTAMP
+from sqlalchemy import Binary, Column, Integer, String, TIMESTAMP, Numeric, DATE
 
 from app import db, login_manager
 from app.base.util import hash_pass
@@ -72,16 +72,25 @@ class User(db.Model, UserMixin):
         return str(self.username)
 
 
-class Patient(db.Model):
+class Patient(db.Model, UserMixin):
     __tablename__ = 'Patient'
 
     id = Column(Integer, primary_key=True)
+    snils = Column(String, unique=True)
     full_name = Column(String)
     gender = Column(String)
     age = Column(Integer)
-    birth_date = Column(String)
+    birth_date = Column(TIMESTAMP(timezone=False), nullable=False)
 
-    # birth_date = datetime.strptime(birth_date, "%Y/%M/%d")
+    def __init__(self, **kwargs):
+        for property, value in kwargs.items():
+            if hasattr(value, '__iter__') and not isinstance(value, str):
+                value = value[0]
+            setattr(self, property, value)
+
+    def __repr__(self):
+        return f"{str(self.snils)}/{str(self.full_name)}"
+
 
 
 @login_manager.user_loader
