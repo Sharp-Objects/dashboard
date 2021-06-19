@@ -1,10 +1,3 @@
-# Цифровой прорыв 2021
-
-Тема: Разработка системы дистанционного мониторинга уровня артериального давления и пульса у больных с артериальной
-гипертензией
-
-Команда: Острые предметы
-
 [![We recommend IntelliJ IDEA](https://www.elegantobjects.org/intellij-idea.svg)](https://www.jetbrains.com/idea/)
 
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Sharp-Objects_dashboard&metric=bugs)](https://sonarcloud.io/dashboard?id=Sharp-Objects_dashboard)
@@ -18,7 +11,7 @@
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Sharp-Objects_dashboard&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=Sharp-Objects_dashboard)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Описание
+# Описание
 
 Личный кабинет пациента и врача, созданный с целью дистанционного мониторинга уровня артериального давления и пульса.
 Данная система позволяет сохранять текущие результаты измеряемых значений с помощью ручного ввода или голосового
@@ -27,15 +20,51 @@
 
 <br/>
 
-> Функционал
+> Реализованная функциональность:
+
+- REST сервис;
+- Личный кабинет врача;
+- Личный кабинет пациента;
+- Мобильное приложение
+
+<br/>
+
+> Особенность проекта:
+
+- Голосовой ввод данных;
+- Простота интеграции;
+- Получение и отправка данных в разные источники;
+- Рекомендательная система лекарств от врача;
+- Рекомендательная система действий в приложении
+
+<br/>
+
+> Стек технологий
 
 - DBMS: SQLite, PostgreSQL (production)
 - DB Tools: SQLAlchemy ORM, Flask-Migrate (schema migrations)
 - Modular design with **Blueprints**, simple codebase
 - Session-Based authentication (via **flask_login**), Forms validation
 - Deployment scripts: Docker, Gunicorn / Nginx, Heroku
+- Python with Flask
 
 > Примечание: чтобы использовать приложение, перейдите на страницу регистрации и создайте нового пользователя. После аутентификации приложение разблокирует приватные страницы.
+
+### Демо
+
+Демоверсия приложения расположена на AWS по адресу: http://ec2-3-15-18-180.us-east-2.compute.amazonaws.com:5000
+
+Реквизиты тестовых пользователей:
+
+1. Пациент
+
+- логин: test
+- пароль: test
+
+2. Доктор
+
+- логин: doctor
+- пароль: doctor
 
 ## Использование
 
@@ -78,7 +107,8 @@ flask run --host=0.0.0.0 --port=5000
 
 ## Развёртывание
 
-Приложение имеет базовую конфигурацию, которая будет выполняться в [Docker](https://www.docker.com/) и [Gunicorn](https://gunicorn.org/).
+Приложение имеет базовую конфигурацию, которая будет выполняться в [Docker](https://www.docker.com/)
+и [Gunicorn](https://gunicorn.org/).
 
 <br/>
 

@@ -142,8 +142,11 @@
                             <img class="user-avatar md-avatar rounded-circle" alt="Image placeholder"
                                  src="/static/assets/img/team/profile-picture-3.jpg">
                             <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
-                      <span class="mb-0 font-small fw-bold">Добрый день, <strong>Анна Ивановна</strong> !
-                      </span>
+                                {% if test ==  current_user.username %}
+                                    <span class="mb-0 font-small fw-bold">Добрый день, <strong>Анна Ивановна</strong>!</span>
+                                {% else %}
+                                    <span class="mb-0 font-small fw-bold">Добрый день, <strong>{{ current_user.username }}</strong>!</span>
+                                {% endif %}
                             </div>
                         </div>
                     </a>
