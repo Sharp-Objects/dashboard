@@ -11,6 +11,23 @@ from app import db, login_manager
 from app.base.util import hash_pass
 
 
+class Recommendation(db.Model, UserMixin):
+    __tablename__ = 'Recommendation'
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    text = Column(String(600), unique=False)
+
+    def __init__(self, **kwargs):
+        print(kwargs.items())
+        for property, value in kwargs.items():
+            if hasattr(value, '__iter__') and not isinstance(value, str):
+                value = value[0]
+            setattr(self, property, value)
+
+    def __repr__(self):
+        return str(self.text)
+
+
 class Common(db.Model, UserMixin):
     __tablename__ = 'Common'
 
