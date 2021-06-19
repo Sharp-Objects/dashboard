@@ -129,8 +129,8 @@
             <div class="card bg-secondary-alt shadow-sm">
                 <div class="card-header d-sm-flex flex-row align-items-center flex-0">
                     <div class="d-block mb-3 mb-sm-0">
-                        <div class="h5 fw-normal mb-2">Давление</div>
-                        <h2 class="h3">120/80</h2>
+                        <div class="h5 fw-normal mb-2">Графики давления</div>
+                        <h2 class="h3">Норма: 120/80</h2>
                         <div class="small mt-2">
                             <span class="fw-bold me-2">Вчера</span>
                             <span class="fas fa-angle-up text-success"></span>
@@ -161,17 +161,17 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {% for indicate in indications %}
+                    {% for com in common %}
                         <tr>
-                            <td class="border-0"><a href="#" class="text-primary fw-bold">{{ indicate.id }}</a></td>
+                            <td class="border-0"><a href="#" class="text-primary fw-bold">{{ com.id }}</a></td>
                             <td class="border-0">
-                                {{ indicate.top_pressure }}
+                                {{ com.high_value }}
                             </td>
                             <td class="border-0">
-                                {{ indicate.bottom_pressure }}
+                                {{ com.low_value }}
                             </td>
                             <td class="border-0">
-                                {{ indicate.pulse }}
+                                {{ com.pulse }}
                             </td>
                         </tr>
                     {% endfor %}
