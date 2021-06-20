@@ -197,14 +197,18 @@ d.addEventListener("DOMContentLoaded", function (event) {
     if (d.querySelector('.ct-chart-sales-value')) {
         //Chart 5
         new Chartist.Line('.ct-chart-sales-value', {
-            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            labels: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
             series: [
-                [0, 10, 30, 40, 80, 60, 100]
+                [116, 111, 118, 121, 127, 112, 115],
+                [90, 88, 87, 72, 70, 80, 89]
             ]
         }, {
             low: 0,
             showArea: true,
             fullWidth: true,
+            chartPadding: {
+                right: 40
+            },
             plugins: [
                 Chartist.plugins.tooltip()
             ],
