@@ -33,6 +33,7 @@ class Common(db.Model, UserMixin):
     __tablename__ = 'Common'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
+    snils = Column(Integer)
     date = Column(TIMESTAMP(timezone=False), nullable=False, default=datetime.now())
     model_name = Column(String, unique=False)
     high_value = Column(Integer)

@@ -1,0 +1,49 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Дневник давлений {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+    <br>
+    <div class="card border-light shadow-sm mb-4">
+        <div class="card-body">
+        <div class="d-flex justify-content-between">
+                <h5> Показатели пациента Михаилов Михаил Михаилович </h5>
+    </div>
+            <div class="table-responsive">
+                <table class="table table-centered table-nowrap mb-0 rounded">
+                    <thead class="thead-light">
+                    <tr>
+                        <th class="border-0">#</th>
+                        <th class="border-0">Дата</th>
+                        <th class="border-0">Прибор</th>
+                        <th class="border-0">Верхнее давление</th>
+                        <th class="border-0">Нижнее давление</th>
+                        <th class="border-0">Пульс</th>
+                        <th class="border-0">Активность</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for com in common %}
+                        <tr>
+                            <td class="border-0"><a href="#" class="text-primary fw-bold">{{ com.id }}</a></td>
+                            <td class="border-0"> {{ com.date }} </td>
+                            <td class="border-0"> {{ com.model_name }} </td>
+                            <td class="border-0"> {{ com.high_value }} </td>
+                            <td class="border-0"> {{ com.low_value }} </td>
+                            <td class="border-0"> {{ com.pulse }} </td>
+                            <td class="border-0"> {{ com.activity }} </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

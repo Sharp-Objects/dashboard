@@ -8,8 +8,9 @@ from flask_login import login_required
 from jinja2 import TemplateNotFound
 
 from app import db
-from app.base.models import Patient, Recommendation
+from app.base.models import Patient, Recommendation, Common
 from app.doctor import blueprint
+from app.patient import routes
 
 
 @blueprint.route('/index')
@@ -45,6 +46,12 @@ def add_recommendations_post():
     req.text = text
     db.session.commit()
     return redirect(request.url)
+
+@blueprint.route('/transactions_doc')
+@login_required
+def transactions():
+    common = db.session.query(Common).order_by(Common.id.asc()).all()
+    return render_template('transactions_doc.html', segment='transactions_doc', common=common)
 
 
 @blueprint.route('/<template>')
