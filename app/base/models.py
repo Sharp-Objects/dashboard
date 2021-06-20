@@ -5,7 +5,7 @@ Copyright (c) 2021 - present SharpObjects
 from datetime import datetime
 
 from flask_login import UserMixin
-from sqlalchemy import Binary, Column, Integer, String, TIMESTAMP, Numeric, DATE
+from sqlalchemy import Binary, Column, Integer, String, TIMESTAMP
 
 from app import db, login_manager
 from app.base.util import hash_pass
@@ -90,7 +90,6 @@ class Patient(db.Model, UserMixin):
 
     def __repr__(self):
         return str(self.full_name)
-
 
 
 @login_manager.user_loader
