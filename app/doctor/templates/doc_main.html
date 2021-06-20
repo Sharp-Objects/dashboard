@@ -6,87 +6,84 @@
 {% block stylesheets %}{% endblock stylesheets %}
 
 {% block content %}
-
-  <div class="table-settings mb-4">
-      <div class="row align-items-center justify-content-between">
-
-
-      </div>
-  </div>
-  <div class="card card-body shadow-sm table-wrapper table-responsive">
-      <table class="table table-hover">
-          <thead>
-              <tr>
-                  <th>СНИЛС</th>
-                  <th>ФИО</th>
-                  <th>Пол</th>
-                  <th>Возраст</th>
-                  <th>Дата рождения</th>
-              </tr>
-          </thead>
-          <tbody>
-              <!-- Item -->
-              {% for pat in patient %}
-                        <tr>
-                            <td ><span class="fw-normal"><a href="#">{{ pat.snils }}</a></span></td>
-                            <td ><span class="fw-normal"> {{ pat.full_name }} </span></td>
-                            <td ><span class="fw-normal"> {{ pat.gender }} </span></td>
-                            <td ><span class="fw-normal"> {{ pat.age }} </span></td>
-                            <td ><span class="fw-normal"> {{ pat.birth_date }} </span></td>
-                            <td>
-                      <div class="btn-group">
-                          <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <div class="table-settings mb-4">
+        <div class="row align-items-center justify-content-between"></div>
+    </div>
+    <div class="card card-body shadow-sm table-wrapper table-responsive">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>СНИЛС</th>
+                <th>ФИО</th>
+                <th>Пол</th>
+                <th>Возраст</th>
+                <th>Дата рождения</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Item -->
+            {% for pat in patient %}
+                <tr>
+                    <td><span class="fw-normal"><a href="#">{{ pat.snils }}</a></span></td>
+                    <td><span class="fw-normal"> {{ pat.full_name }} </span></td>
+                    <td><span class="fw-normal"> {{ pat.gender }} </span></td>
+                    <td><span class="fw-normal"> {{ pat.age }} </span></td>
+                    <td><span class="fw-normal"> {{ pat.birth_date }} </span></td>
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               <span class="icon icon-sm">
                                   <span class="fas fa-ellipsis-h icon-dark"></span>
                               </span>
-                              <span class="sr-only">Toggle Dropdown</span>
-                          </button>
-                          <div class="dropdown-menu py-0">
-                              <a class="dropdown-item rounded-top" href="/dashboard"><span class="fas fa-eye me-2"></span> Данные о пациенте </a>
-                              <a class="dropdown-item" href="/transactions_doc"><span class="fas fa-medkit me-2"></span> Метрики здоровья </a>
-                              <a class="dropdown-item" href="/add_recommendations"><span class="fas fa-edit me-2"></span> Добавить рекомендации </a>
-                              <a class="dropdown-item text-danger rounded-bottom" href="#"><span class="fas fa-trash-alt me-2"></span> Скрыть </a>
-                          </div>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <div class="dropdown-menu py-0">
+                                <a class="dropdown-item rounded-top" href="/dashboard"><span
+                                        class="fas fa-eye me-2"></span> Данные о пациенте </a>
+                                <a class="dropdown-item" href="/transactions_doc"><span
+                                        class="fas fa-medkit me-2"></span> Метрики здоровья </a>
+                                <a class="dropdown-item" href="/add_recommendations"><span
+                                        class="fas fa-edit me-2"></span> Добавить рекомендации </a>
+                                <a class="dropdown-item text-danger rounded-bottom" href="#"><span
+                                        class="fas fa-trash-alt me-2"></span> Скрыть </a>
+                            </div>
 
-                      </div>
-                  </td>
-                        </tr>
-                    {% endfor %}
-              </tr>
-
-
-          </tbody>
-      </table>
-      <div class="card-footer px-3 border-0 d-flex align-items-center justify-content-between">
-          <nav aria-label="Page navigation example">
-              <ul class="pagination mb-0">
-                  <li class="page-item">
-                      <a class="page-link" href="#">Предыдущая</a>
-                  </li>
-                  <li class="page-item">
-                      <a class="page-link" href="#">1</a>
-                  </li>
-                  <li class="page-item active">
-                      <a class="page-link" href="#">2</a>
-                  </li>
-                  <li class="page-item">
-                      <a class="page-link" href="#">3</a>
-                  </li>
-                  <li class="page-item">
-                      <a class="page-link" href="#">4</a>
-                  </li>
-                  <li class="page-item">
-                      <a class="page-link" href="#">5</a>
-                  </li>
-                  <li class="page-item">
-                      <a class="page-link" href="#">Следующая</a>
-                  </li>
-              </ul>
-          </nav>
-          <div class="fw-bold small d-none d-lg-block">Показаны <b>5</b> из <b>25</b> записей </div>
-      </div>
-  </div>
-
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="card-footer px-3 border-0 d-flex align-items-center justify-content-between">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination mb-0">
+                    <li class="page-item">
+                        <a class="page-link" href="#">Предыдущая</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item active">
+                        <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">4</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">5</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Следующая</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="fw-bold small d-none d-lg-block">Показаны <b>5</b> из <b>25</b> записей</div>
+        </div>
+    </div>
 
 {% endblock content %}
 
