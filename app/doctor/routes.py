@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 """
-Copyright (c) 2019 - present AppSeed.us
+Copyright (c) 2021 - present SharpObjects
 """
 
 from flask import render_template, redirect, request
@@ -10,7 +10,6 @@ from jinja2 import TemplateNotFound
 from app import db
 from app.base.models import Patient, Recommendation, Common
 from app.doctor import blueprint
-from app.patient import routes
 
 
 @blueprint.route('/index')
@@ -29,13 +28,19 @@ def doc_main():
 @blueprint.route('/add_recommendations')
 @login_required
 def add_recommendations():
-    recommendations = db.session.query(Recommendation).join(Patient,
-                                                            Recommendation.patient_snils == Patient.snils).all()
-    patient_name = db.session.query(Patient).join(Recommendation, Recommendation.patient_snils == Patient.snils).all()
-    return render_template('add_recommendations.html',
-                           segment='add_recommendations',
-                           recommendations=recommendations,
-                           patient_name=patient_name)
+    recommendations = db.session.query(Recommendation).join(
+        Patient,
+        Recommendation.patient_snils == Patient.snils
+    ).all()
+    patient_name = db.session.query(Patient).join(
+        Recommendation, Recommendation.patient_snils == Patient.snils
+    ).all()
+    return render_template(
+        'add_recommendations.html',
+        segment='add_recommendations',
+        recommendations=recommendations,
+        patient_name=patient_name
+    )
 
 
 @blueprint.route('/add_recommendations', methods=["POST"])
@@ -46,6 +51,7 @@ def add_recommendations_post():
     req.text = text
     db.session.commit()
     return redirect(request.url)
+
 
 @blueprint.route('/transactions_doc')
 @login_required
@@ -58,19 +64,12 @@ def transactions():
 @login_required
 def route_template(template):
     try:
-
         if not template.endswith('.html'):
             template += '.html'
-
-        # Detect the current page
         segment = get_segment(request)
-
-        # Serve the file (if exists) from app/templates/FILE.html
         return render_template(template, segment=segment)
-
     except TemplateNotFound:
         return render_template('page-404.html'), 404
-
     except:
         return render_template('page-500.html'), 500
 
@@ -78,13 +77,9 @@ def route_template(template):
 # Helper - Extract current page name from request
 def get_segment(request):
     try:
-
         segment = request.path.split('/')[-1]
-
         if segment == '':
             segment = 'index'
-
         return segment
-
     except:
         return None
